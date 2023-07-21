@@ -99,7 +99,7 @@
   display: inline-flex;
   flex-direction: row;
   white-space: nowrap;
-  box-shadow: var(--color-search-shadow);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 #clear_search {
@@ -156,6 +156,7 @@ html.no-js #clear_search.hide_if_nojs {
 
 #send_search {
   .ltr-rounded-right-corners(0.8rem);
+  transition: background-color 0.3s ease;
 
   &:hover {
     cursor: pointer;
