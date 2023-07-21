@@ -1285,7 +1285,7 @@ def config():
 
 @app.errorhandler(404)
 def page_not_found(_e):
-    return render('404.html'), 404
+    return redirect(url_for('index', _external=True))
 
 
 # see https://flask.palletsprojects.com/en/1.1.x/cli/
