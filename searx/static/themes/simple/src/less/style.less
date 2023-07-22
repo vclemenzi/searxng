@@ -114,9 +114,29 @@ footer {
   height: 40px;
 }
 
+.homenews {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  padding: 2rem;
+
+  article {
+    padding: 1.5rem;
+    border: 1px solid var(--color-result-border);
+    border-radius: 8px;
+    text-align: left;
+
+    .url_wrapper {
+      color: var(--color-base-font);
+    }
+  }
+}
+
 input[type="submit"],
 #results button[type="submit"] {
   padding: 0.7rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   display: inline-block;
   background: var(--color-btn-background);
   color: var(--color-btn-font);
@@ -540,14 +560,26 @@ article[data-vim-selected].category-social {
 }
 
 #suggestions {
+    form {
+      margin: 10px 0 10px;
+      border: 1px solid var(--color-sidebar-border);
+      padding: 0.5rem;
+      font-size: 0.9em;
+      box-shadow: 0 3px 10px rgba(0,0,0,.2);
+    }
+
   .wrapper {
     display: flex;
     flex-flow: column;
     justify-content: flex-end;
 
     form {
-      display: inline-block;
-      flex: 1 1 50%;
+      margin: 10px 0 10px;
+      border: 1px solid var(--color-sidebar-border);
+      padding: 0.5rem;
+      font-size: 0.9em;
+      box-shadow: 0 3px 10px rgba(0,0,0,.2);
+      .rounded-corners;
     }
   }
 }
@@ -560,7 +592,7 @@ article[data-vim-selected].category-social {
     font-size: 0.9em;
     display: inline-block;
     background: transparent;
-    color: var(--color-result-search-url-font);
+    color: var(--color-result-url-font);
     cursor: pointer;
     width: calc(100%);
     text-overflow: ellipsis;
@@ -570,7 +602,7 @@ article[data-vim-selected].category-social {
 
   input[type="submit"],
   .infobox .url a {
-    color: var(--color-result-link-font);
+    color: var(--color-result-url-font);
     text-decoration: none;
     font-size: 0.9rem;
 
@@ -657,6 +689,7 @@ summary.title {
     border: 1px solid var(--color-sidebar-border);
     padding: 1rem;
     font-size: 0.9em;
+    box-shadow: 0 3px 10px rgba(0,0,0,.2);
     .rounded-corners;
 
     h2 {
@@ -676,6 +709,10 @@ summary.title {
     span {
       font-weight: bold;
       margin-right: 3px;
+    }
+
+    div {
+      margin-top: 2rem;
     }
 
     .attributes {
@@ -850,9 +887,8 @@ summary.title {
       img {
         .ltr-float-left();
         max-width: 10em;
-        margin-top: 0.5em;
+        margin-top: 1em;
         .ltr-margin-right(0.5em);
-        margin-bottom: 0.5em;
         .ltr-margin-left(0);
       }
     }

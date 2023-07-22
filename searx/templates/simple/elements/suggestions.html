@@ -1,7 +1,4 @@
 <div id="suggestions" role="complementary" aria-labelledby="suggestions-title">
-  <details class="sidebar-collapsable">
-    <summary class="title" id="suggestions-title">{{ _('Suggestions') }}</summary>
-    <div class="wrapper">
       {%- for suggestion in suggestions -%}
         <form method="{{ method or 'POST' }}" action="{{ url_for('search') }}">
           <input type="hidden" name="q" value="{{ suggestion.url }}">
@@ -18,6 +15,4 @@
           <input type="submit" class="suggestion" role="link" value="&bull; {{ suggestion.title }}">
         </form>
       {%- endfor -%}
-    </div>
-  </details>
 </div>
