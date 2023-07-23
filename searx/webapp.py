@@ -49,6 +49,8 @@ from flask_babel import (
     format_decimal,
 )
 
+import g4f
+
 from searx import (
     logger,
     get_setting,
@@ -614,6 +616,18 @@ def health():
 def client_token(token=None):
     link_token.ping(request, token)
     return Response('', mimetype='text/css')
+
+@app.route('/ai', methods=['GET', 'POST'])
+def ai():
+    if not request.form.get('q'):
+        return 'No query', 400
+
+    response = g4f.ChatCompletion.create(model='gpt-3.5-turbo', provider=g4f.Provider.DeepAi, messages=[
+        {"role": "user", "content": "Write a few words in response to this user prompt: '" + request.form.get("q") +
+         "', DO NOT START PROMPT WITH: 'As an AI language model', 'As a language model' or similar"}], stream=False)
+
+    return response, 200
+
 
 
 @app.route('/search', methods=['GET', 'POST'])

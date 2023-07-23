@@ -71,6 +71,17 @@
   </footer>
   <!--[if gte IE 9]>-->
   <script src="{{ url_for('static', filename='js/searxng.min.js') }}"></script>
+  <script>
+    const ai = document.querySelector(".ai");
+
+    ai.innerHTML = "Loading ai response...";
+
+    fetch(`http://${window.location.host}/ai?q={{ q|urlencode }}`)
+        .then((r) => r.text())
+        .then((data) => {
+            ai.innerHTML = data;
+        })
+  </script>
   <!--<![endif]-->
 </body>
 </html>
